@@ -3,13 +3,15 @@
 namespace common\models\guangyi;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%study_progress}}".
  *
- * @property string $id
- * @property integer $progress
+ * @property string $uid
+ * @property integer $index
+ * @property integer $result
  * @property integer $updated_at
  * @property integer $created_at
  */
@@ -22,6 +24,10 @@ class GuangyiStudyProgress extends ActiveRecord
     {
         return '{{%study_progress}}';
     }
+    
+    public function behaviors() {
+        return [TimestampBehavior::className()];
+    }
 
     /**
      * @inheritdoc
@@ -29,9 +35,9 @@ class GuangyiStudyProgress extends ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['progress', 'updated_at', 'created_at'], 'integer'],
-            [['id'], 'string', 'max' => 36]
+            [['uid'], 'required'],
+            [['index','result', 'updated_at', 'created_at'], 'integer'],
+            [['uid'], 'string', 'max' => 36]
         ];
     }
 
@@ -41,8 +47,9 @@ class GuangyiStudyProgress extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('guangyi', 'ID'),
-            'progress' => Yii::t('guangyi', 'Progress'),
+            'uid' => Yii::t('guangyi', 'UID'),
+            'index' => Yii::t('guangyi', 'Index'),
+            'result' => Yii::t('guangyi', 'Result'),
             'updated_at' => Yii::t('guangyi', 'Updated At'),
             'created_at' => Yii::t('guangyi', 'Created At'),
         ];

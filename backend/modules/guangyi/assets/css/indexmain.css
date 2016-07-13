@@ -1,21 +1,41 @@
-.step{display: inline-block;width: 80px;height: 90px;text-align: center;}
-.step>.icon{display: inline-block;width: 58px;height: 48px;}
-.icon0{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon1{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon2{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon3{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon4{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon5{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon6{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon7{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon8{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon9{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon10{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon11{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon12{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon13{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon14{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon15{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.icon16{background: url(../imgs/camera.png) no-repeat 0px 0px}
-.arrow{background: url(../imgs/arrow.png) no-repeat 0px 0px}
-.step>.name{float: left}
+.body{font-family: 微软雅黑}
+.step{position: relative;display: inline-block;width: 80px;text-align: center;margin:10px;}
+.step .icon{display: inline-block;width: 72px;height: 72px;}
+.step .name{float: left;width: 100%}
+.step .icon0{background: url(../imgs/step0.png) no-repeat 0px 0px}
+.step .icon1{background: url(../imgs/step1.png) no-repeat 0px 0px}
+.step .icon2{background: url(../imgs/step2.png) no-repeat 0px 0px}
+.step .icon3{background: url(../imgs/step3.png) no-repeat 0px 0px}
+.step .icon4{background: url(../imgs/step4.png) no-repeat 0px 0px}
+.step .icon5{background: url(../imgs/step5.png) no-repeat 0px 0px}
+.step .icon6{background: url(../imgs/step6.png) no-repeat 0px 0px}
+.step .icon7{background: url(../imgs/step7.png) no-repeat 0px 0px}
+.step .icon8{background: url(../imgs/step8.png) no-repeat 0px 0px}
+.step .icon9{background: url(../imgs/step9.png) no-repeat 0px 0px}
+.step .icon10{background: url(../imgs/step10.png) no-repeat 0px 0px}
+.step .icon11{background: url(../imgs/step11.png) no-repeat 0px 0px}
+.step .icon12{background: url(../imgs/step12.png) no-repeat 0px 0px}
+.step .icon13{background: url(../imgs/step13.png) no-repeat 0px 0px}
+.step .icon14{background: url(../imgs/step14.png) no-repeat 0px 0px}
+.step .icon15{background: url(../imgs/step15.png) no-repeat 0px 0px}
+.step .icon16{background: url(../imgs/step16.png) no-repeat 0px 0px}
+.step .bg{background: url(../imgs/step-bg.png) no-repeat 0px 0px}
+.step .rw{width: 44px;height: 43px;position: absolute;right: -20px;top: -20px;}
+.step .wrong{background: url(../imgs/wrong.png) no-repeat 0px 0px;}
+.step .right{background: url(../imgs/right.png) no-repeat 0px 0px;}
+.arrow{display: inline-block;width: 36px;height: 40px;position: relative;top: -15px;background: url(../imgs/arrow.png) no-repeat 0px 0px}
+.substep-tooptip{display: none;width: 278px;height: 278px;position: absolute;background: url(../imgs/substep-tooptip-bg.png)}
+.substep-tooptip .txt{position: relative;top: 92px;left: 50px;width: 169px;height: 131px;display: inline-block;overflow: hidden;}
+.access{text-align: center;}
+.access .rw{width: 100px;height: 100px;display: inline-block;}
+.access .right{background: url(../imgs/access-right.png) no-repeat 0px 0px;}
+.access .wrong{background: url(../imgs/access-wrong.png) no-repeat 0px 0px;}
+.study-progress{}
+.study-progress .item{width: 118px;height: 120px;display: inline-block;margin: 10px;position: relative;}
+.study-progress .item .hide{display: none}
+.study-progress .item .tile{width: 104px;height: 106px;display: inline-block;}
+.study-progress .item .tile-enabled{background: url(../imgs/item-tile-enabled.png)}
+.study-progress .item .tile-disabled{background: url(../imgs/item-tile-disabled.png)}
+.study-progress .item .txt{width: 104px;height: 106px;display: inline-block;position: absolute;left: 0px;top: 0px;padding: 20px; color: #fff;font-weight: bold; font-size: 20px;text-align: center;}
+.study-progress .item .locked{width: 46px;height: 49px;display: inline-block;background: url(../imgs/locked.png); position: absolute; right: 5px; top: -19px;}
+.study-progress .item .mouse{width: 48px;height: 46px;display: inline-block;background: url(../imgs/current-progress-mouse.png)}

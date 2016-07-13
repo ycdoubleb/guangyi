@@ -3,6 +3,7 @@
 use backend\modules\guangyi\assets\GuangyiAsset;
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 
 ?>
@@ -10,6 +11,7 @@ use yii\web\View;
     <h1>所有学员</h1>
      <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
     <div id="chartcanvas" style="width: 600px;height:400px;"></div>
+    <h4><p style="font-family: 微软雅黑"><b>统计考核次数</b></p></h4>
     <?=
     GridView::widget([
         'dataProvider' => $dataProvider,
@@ -37,7 +39,7 @@ use yii\web\View;
             ['class' => 'yii\grid\ActionColumn','header'=>'操作','template' => '{view}',
                 'buttons' => [
                 'view' => function ($url, $model, $key) {
-                      return  Html::a('<span class="btn btn-primary">查看</span>', $url, ['title' => '查看'] ) ;
+                      return  Html::a('<span class="btn btn-primary">查看</span>', Url::to(['view','uid'=>$model['uid']]), ['title' => '查看'] ) ;
                      },
                 ],
                'headerOptions' => ['width' => '60']
@@ -51,7 +53,7 @@ use yii\web\View;
     $js = <<<JS
     var chart = new guangyi.IndexMain();
     chart.init(document.getElementById('chartcanvas'));        
-    chart.reflashChart($jsstep);  
+    chart.reflashChart('统计出错步骤',$jsstep);  
 JS;
     $this->registerJs($js,  View::POS_READY); 
 ?>

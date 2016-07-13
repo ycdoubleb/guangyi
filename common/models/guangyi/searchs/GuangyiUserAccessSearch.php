@@ -19,17 +19,16 @@ use yii\data\ArrayDataProvider;
  */
 class GuangyiUserAccessSearch extends Model{
     
-    public $uid;
-    
-    public function search($params){
-        $this->load($params);
+    public function search($uid){
         $query = GuangyiAssessLog::find()
-                ->orderBy('created_at');
-        $query->andFilterWhere(['and','u_id',$this->uid]);
+                ->andFilterWhere(['u_id'=>$uid])
+                ->orderBy('created_at DESC');
+        
+        
         $dataProvider = new ArrayDataProvider([
             'allModels' => $query->asArray()->all(),
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 5,
             ],
         ]);
         return $dataProvider;

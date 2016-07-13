@@ -3,6 +3,7 @@
 namespace common\models\guangyi;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -24,6 +25,10 @@ class GuangyiAssessLog extends ActiveRecord
     {
         return '{{%assess_log}}';
     }
+    
+    public function behaviors() {
+        return [TimestampBehavior::className()];
+    }
 
     /**
      * @inheritdoc
@@ -31,10 +36,10 @@ class GuangyiAssessLog extends ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'u_id', 'result'], 'required'],
+            [['u_id', 'result'], 'required'],
             [['id', 'result', 'created_at', 'updated_at'], 'integer'],
             [['u_id'], 'string', 'max' => 36],
-            [['data'], 'string', 'max' => 500]
+            [['data'], 'string', 'max' => 3000]
         ];
     }
 

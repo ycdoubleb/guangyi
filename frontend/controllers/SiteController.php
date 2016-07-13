@@ -122,13 +122,13 @@ class SiteController extends Controller
             } else {
                 return [
                     'code'=>1,
-                    'message'=>'登录失败! err：'.json_encode($model->getErrors())
+                    'message'=>'账号或者密码不对'
                 ];
             }
         } catch (\Exception $ex) {
             return [
                 'code'=>3,
-                'message'=>'登录失败! err:'.$ex->getMessage()
+                'message'=>$ex->getMessage()
             ];
         }
     }

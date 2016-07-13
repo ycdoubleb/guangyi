@@ -5,8 +5,9 @@
  */
 (function(win,$){
     
-    var STEP_NAMES = ["Step0","Step1","Step2","Step3","Step4","Step5","Step6","Step7","Step8","Step9","Step10","Step11","Step12","Step13","Step14","Step15","Step16"];
-    
+    var STEP_NAMES = ['开机','关机','放试剂','放耗材','定标品稀释静置','质控品稀释静置','标本离心','把定标品放入进仓口',
+            '启动START (做定标)','把质控品放入进仓口','启动START (做质控)','把标本放入进仓口','启动START (做标本)','发报告','STOP仪器','设备维护','清理试剂'];
+
     win.guangyi = win.guangyi || {};
     var Main = function(){
         
@@ -24,9 +25,9 @@
         this.chart = echarts.init(dom);
         this.chartOptions = {
             title : {
-                text: '某站点用户访问来源',
-                subtext: '纯属虚构',
-                x:'center'
+                text: '统计出错步骤',
+                subtext: '',
+                x:'left'
             },
             tooltip : {
                 trigger: 'item',
@@ -69,10 +70,11 @@
      * @param {Array} data 出错步骤数据
      * @returns 
      */
-    p.reflashChart = function(data){
+    p.reflashChart = function(title,data){
         for(var i=0,len=data.length;i<len;i++)
             data[i]["name"] = STEP_NAMES[data[i]["step"]];
-       
+        
+        this.chartOptions.title.text = title;
         this.chartOptions.series[0].data = data;
         this.chart.setOption(this.chartOptions);
     }

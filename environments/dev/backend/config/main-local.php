@@ -29,6 +29,9 @@ $config = [
         'resource' => [
             'class' => 'backend\modules\resource\Module',
         ],
+        'guangyi' => [
+            'class' => 'backend\modules\guangyi\Module',
+        ],
     ],
 ];
 

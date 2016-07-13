@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/workspace/netbeans/guangyi/backend/modules/guangyi/controllers/DefaultController.php</file>
+            <file>file:/E:/work/netbeans/guangyi/common/models/guangyi/searchs/GuangyiUserAccessSearch.php</file>
+            <file>file:/E:/work/netbeans/guangyi/backend/modules/guangyi/assets/js/indexmain.js</file>
+            <file>file:/E:/work/netbeans/guangyi/frontend/modules/guangyi/controllers/DefaultController.php</file>
+            <file>file:/E:/work/netbeans/guangyi/backend/modules/guangyi/assets/css/indexmain.css</file>
+            <file>file:/E:/work/netbeans/guangyi/backend/modules/guangyi/views/default/index.php</file>
+            <file>file:/E:/work/netbeans/guangyi/backend/modules/guangyi/views/default/view.php</file>
+            <file>file:/E:/work/netbeans/guangyi/backend/modules/guangyi/controllers/DefaultController.php</file>
         </group>
     </open-files>
 </project-private>

@@ -3,13 +3,16 @@
 namespace backend\modules\guangyi\controllers;
 
 use common\models\guangyi\GuangyiAssessLog;
+use common\models\guangyi\GuangyiCurrentProgress;
 use common\models\guangyi\GuangyiStepResult;
+use common\models\guangyi\GuangyiStudyProgress;
 use common\models\guangyi\searchs\GuangyiAssessLogSearch;
 use common\models\guangyi\searchs\GuangyiUserAccessSearch;
 use common\models\User;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -33,20 +36,35 @@ class DefaultController extends Controller
                 ]);
     }
     
-    public function actionView(){
+    public function actionView($uid){
+        $user = User::findOne($uid);
+        if($user == null)
+            throw new NotFoundHttpException("找不到对应用户！");
+        
         $searchModel = new GuangyiUserAccessSearch();
-        $dataProvider = $searchModel->search(\Yii::$app->getRequest()->getQueryParams());
+        $dataProvider = $searchModel->search(['uid'=>$uid]);
+        
+        $progressMode = GuangyiStudyProgress::find()
+                ->where(['uid'=>$uid])
+                ->asArray()
+                ->all();
+        $progressMode = ArrayHelper::map($progressMode, 'index', 'result');
+
+        $currentProgressModel = GuangyiCurrentProgress::findOne($uid);
         
         $steps = GuangyiStepResult::find()
                 ->select(['step','COUNT(*) AS value'])
-                ->where(['u_id'=>\Yii::$app->getRequest()->getQueryParam('uid')])
+                ->where(['u_id'=>$uid])
                 ->groupBy('step')
                 ->asArray()
                 ->all();
         
         return $this->render('view', [
+                    'user' => $user,
                     'steps' => $steps,
-                    'dataProvider'=> $dataProvider
+                    'dataProvider'=> $dataProvider,
+                    'currentIndex'=>$currentProgressModel ? $currentProgressModel->progress : -1,
+                    'progress'=>$progressMode ? $progressMode : 'null',
         ]);
     }
     

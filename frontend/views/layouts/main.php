@@ -68,6 +68,7 @@ AppAsset::register($this);
         'items' => $menuItems,
         'route' => $bar_route == 'site' ? Yii::$app->controller->getRoute() : $bar_route,
     ]);
+    /*
     if(!Yii::$app->user->isGuest){
         echo Html::beginTag('ul', ['class'=>'navbar-nav navbar-right nav']);
         echo '<li class="dropdown">'.Html::a(Html::img('/filedata/image/u23.png',[
@@ -96,7 +97,7 @@ AppAsset::register($this);
                 ],
             ]).'</li>'; 
         echo Html::endTag('ul');
-    }
+    }*/
     NavBar::end();
     ?>
     <div class="content">

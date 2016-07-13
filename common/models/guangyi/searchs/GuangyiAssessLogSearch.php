@@ -3,9 +3,11 @@
 namespace common\models\guangyi\searchs;
 
 use common\models\guangyi\GuangyiAssessLog;
+use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\data\ArrayDataProvider;
+use yii\db\Query;
 
 /**
  * This is the model class for table "{{%assess_log}}".
@@ -46,20 +48,20 @@ class GuangyiAssessLogSearch extends Model
      */
     public function search($params){
         $this->load($params);
-        $whereCondition = '';
-        if(isset($this->nickname) && $this->nickname!=''){
-            $whereCondition .= " WHERE B.nickname LIKE '%$this->nickname%'";
-        }
-        
-        $sql = "SELECT B.id AS uid, B.nickname ,COUNT(*) AS total,SUM(A.result) AS rightTotal,(SUM(A.result)/COUNT(*)) AS pcorrect
-                    FROM guangyi_assess_log AS A
-                    LEFT JOIN guangyi_user AS B on A.u_id = B.id
-                    $whereCondition
-                    GROUP BY A.u_id";
-        
-        $query = GuangyiAssessLog::findBySql($sql);
+        $results = (new Query())
+                ->select([
+                    'B.id AS uid',
+                    'B.nickname',
+                    'COUNT(A.u_id) AS total',
+                    'SUM(A.result) AS rightTotal',
+                    '(SUM(A.result)/COUNT(*)) AS pcorrect'])
+                ->from(['B'=>  User::tableName()])
+                ->leftJoin(['A'=>  GuangyiAssessLog::tableName()], 'A.u_id = B.id')
+                ->andFilterWhere(['like','B.nickname',"$this->nickname"])
+                ->groupBy('B.id')
+                ->all(Yii::$app->db);
         $dataProvider = new ArrayDataProvider([
-            'allModels' => $query->asArray()->all(),
+            'allModels' => $results,
             'sort' => [
                 'attributes' => ['total', 'rightTotal', 'pcorrect'],
             ],

@@ -10,34 +10,7 @@ use yii\web\View;
 $this->title = '课程中心工作平台';
 ?>
 <div class="container site-index  site-list" style="padding-top: 15px;">
-    <div class="jumbotron" style="padding:0;margin: 0;">
-        <div class="carousel slide" id="carousel-451276">
-            <ol class="carousel-indicators">
-                <?php foreach ($banner as $key => $value){
-                    if($key == 0)
-                        echo '<li class="active" data-slide-to="'.$key.'" data-target="#carousel-451276"></li>';
-                    else
-                        echo '<li data-slide-to="'.$key.'" data-target="#carousel-451276"></li>';
-                }?>
-            </ol>
-            <div class="carousel-inner">
-                <?php foreach ($banner as $key => $value){
-                    if($key == 0)
-                        echo '<div class="item active">';
-                    else
-                        echo '<div class="item">';
-                    $fileSuffix = pathinfo($value->path, PATHINFO_EXTENSION);
-                    if(in_array(strtolower($fileSuffix),$video))
-                        echo '<video src="'.$value->path.'" type="video/mp4" width="100%">您的浏览器不支持 video 标签。</video>';
-                    else
-                        echo '<img class="center-block" alt="" src="'.$value->path.'"  width = "100%"/>';
-                    echo '</div>';
-                }?>
-            </div>
-            <!--<a data-slide="prev" href="#carousel-451276" class="left carousel-control">‹</a>
-            <a data-slide="next" href="#carousel-451276" class="right carousel-control">›</a>-->
-        </div>
-    </div>
+    
     
     <div class="body-content">
         <div class="jumbotron" style="padding:0;margin: 0;">
@@ -98,7 +71,7 @@ $this->title = '课程中心工作平台';
         });
     });
 JS;
-    $this->registerJs($js,  View::POS_READY); 
+    //$this->registerJs($js,  View::POS_READY); 
 ?> 
 
 

@@ -57,6 +57,10 @@ AppAsset::register($this);
                  ['label' => '规则', 'url' => '/rbac/rule'],
             ]
         ];
+        $menuItems[] = [
+            'label' => '学习情况',
+            'url' => '/guangyi'
+        ];
     }
     echo Nav::widget([
         'options' =>Yii::$app->user->isGuest ? ['class' =>'navbar-nav navbar-right'] : ['class' => 'navbar-nav navbar-left'],
