@@ -11,7 +11,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
-use const FILEDATA_PATH;
+use const WEB_ROOT;
 
 class DefaultController extends Controller
 {
@@ -73,7 +73,7 @@ class DefaultController extends Controller
                 'data'=>[
                     'userid'=>$userid,
                     'nickname'=>Yii::$app->user->identity->nickname,
-                    'avatar'=>FILEDATA_PATH.Yii::$app->user->identity->avatar,
+                    'avatar'=>WEB_ROOT.Yii::$app->user->identity->avatar,
                     'currentIndex'=>$currentProgressModel ? $currentProgressModel->progress : -1,
                     'progress'=>$progressMode ? $progressMode : 'null',
                     'access'=>$accessModel ? $accessModel : "null",

@@ -68,7 +68,7 @@ AppAsset::register($this);
     ]);
     if(!Yii::$app->user->isGuest){
         echo Html::beginTag('ul', ['class'=>'navbar-nav navbar-right nav']);
-        echo '<li class="dropdown">'.Html::a(Html::img(FILEDATA_PATH . Yii::$app->user->identity->avatar,[
+        echo '<li class="dropdown">'.Html::a(Html::img(WEB_ROOT . Yii::$app->user->identity->avatar,[
             'width'=> '30', 
             'height' => '30',
             'style' => 'border: 1px solid #ccc;margin-top:-13px; margin-right:5px;',
