@@ -99,7 +99,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; 广州远程教育中心有限公司</p>
+        <p class="pull-left">&copy; Y.C.Double.B</p>
 
     </div>
 </footer>

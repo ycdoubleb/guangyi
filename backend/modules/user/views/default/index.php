@@ -22,7 +22,6 @@ $this->title = '管理用户';
             'username',
             'nickname',
             'email',
-            'ee',
             [
                 'attribute' => 'created_at',
                 'value' => function ($model) {

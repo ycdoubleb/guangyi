@@ -2,11 +2,11 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'rcoaadmin.gzedu.net';
+$this->title = '后台管理';
 ?>
 <div class="site-index">
     <div class="jumbotron">
-        <h1>wskeeee 后台管理</h1>
+        <h1>后台管理</h1>
 
         <p class="lead">欢迎来到虚拟实验</p>
         <p class="lead">e170光化学反应仪</p>
