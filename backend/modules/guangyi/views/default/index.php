@@ -12,6 +12,7 @@ use yii\web\View;
      <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
     <div id="chartcanvas" style="width: 600px;height:400px;"></div>
     <h4><p style="font-family: 微软雅黑"><b>统计考核次数</b></p></h4>
+    <a class="btn btn-lg btn-success" href="/guangyi/default/export">导出成绩</a>
     <?=
     GridView::widget([
         'dataProvider' => $dataProvider,

@@ -31,7 +31,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'RBAC',
+        'brandLabel' => '',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -46,16 +46,17 @@ AppAsset::register($this);
         ]
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => Yii::t('rcoa', 'Login') , 'url' => ['/site/login']];
     } else {
         $menuItems[] = [
             'label' => '用户',
-            'items' => [
-                 ['label' => '用户', 'url' => '/user'],
-                 ['label' => '角色', 'url' => '/rbac/role'],
-                 ['label' => '权限', 'url' => '/rbac/permission'],
-                 ['label' => '规则', 'url' => '/rbac/rule'],
-            ]
+            'url' => ['/user'],
+           // 'items' => [
+                 //['label' => '用户', 'url' => '/user'],
+                 //['label' => '角色', 'url' => '/rbac/role'],
+                 //['label' => '权限', 'url' => '/rbac/permission'],
+                 //['label' => '规则', 'url' => '/rbac/rule'],
+           // ]
         ];
         $menuItems[] = [
             'label' => '学习情况',
@@ -99,7 +100,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Y.C.Double.B</p>
+        <p class="pull-left"></p>
 
     </div>
 </footer>

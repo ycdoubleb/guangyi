@@ -9,6 +9,8 @@ use common\models\guangyi\GuangyiStudyProgress;
 use common\models\guangyi\searchs\GuangyiAssessLogSearch;
 use common\models\guangyi\searchs\GuangyiUserAccessSearch;
 use common\models\User;
+use PHPExcel;
+use PHPExcel_IOFactory;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -140,4 +142,66 @@ class DefaultController extends Controller
         $query->execute();
         return $this->render('index');
     } 
+    /**
+     * 导出用户数据
+     */
+    public function actionExport(){
+        // Create new PHPExcel object
+        $objPHPExcel = new PHPExcel();
+        // Set document properties
+        $objPHPExcel->getProperties()->setCreator("wskeee")
+                                    ->setLastModifiedBy("wskeee")
+                                    ->setTitle("成绩导出")
+                                    ->setSubject("广医")
+                                    ->setDescription("")
+                                    ->setKeywords("office 2007 openxml php")
+                                    ->setCategory("Test result file");
+        // Add some data
+        /*
+        $objPHPExcel->setActiveSheetIndex(0)
+                    ->setCellValue('A1', 'Hello')
+                    ->setCellValue('B2', 'world!')
+                    ->setCellValue('C1', 'Hello')
+                    ->setCellValue('D2', 'world!');
+        // Miscellaneous glyphs, UTF-8
+        $objPHPExcel->setActiveSheetIndex(0)
+                    ->setCellValue('A4', 'Miscellaneous glyphs')
+                    ->setCellValue('A5', 'éàèùâêîôûëïüÿäöüç');
+        */
+        //添加成绩数据
+        $searchModel = new GuangyiAssessLogSearch();
+        $dataProvider = $searchModel->search(\Yii::$app->getRequest()->getQueryParams())
+                ->allModels;
+        
+        // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+        $objPHPExcel->setActiveSheetIndex(0);
+        // Rename worksheet
+        $objPHPExcel->getActiveSheet()->setTitle('所有用户');
+        //添加标题
+        $objPHPExcel->setActiveSheetIndex(0)
+                    ->setCellValue('A1', '名称')
+                    ->setCellValue('B1', '考核总数')
+                    ->setCellValue('C1', '答对数')
+                    ->setCellValue('D1', '正确率');
+        
+        foreach ($dataProvider as $key => $log){
+            $objPHPExcel->setActiveSheetIndex(0)->setCellValueByColumnAndRow(0, $key+2, $log['nickname'])
+                                                ->setCellValueByColumnAndRow(1, $key+2, $log['total'])
+                                                ->setCellValueByColumnAndRow(2, $key+2, $log['rightTotal'])
+                                                ->setCellValueByColumnAndRow(3, $key+2, ((int)($log['pcorrect']*10000)/100).'%');
+        }
+        // Redirect output to a client’s web browser (Excel2007)
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="导出成绩.xlsx"');
+        header('Cache-Control: max-age=0');
+        // If you're serving to IE 9, then the following may be needed
+        header('Cache-Control: max-age=1');
+        // If you're serving to IE over SSL, then the following may be needed
+        header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+        header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
+        header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+        header ('Pragma: public'); // HTTP/1.0
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+        $objWriter->save('php://output');
+    }
 }

@@ -11,7 +11,7 @@ use wskeee\rbac\RbacAsset;
 /* @var $model yii\web\IdentityInterface */
 
 $this->title = 'Assignment';
-$this->params['breadcrumbs'][] = ['label' => 'Assignment', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '权限管理', 'url' => ['index']];
 ?>
 <div class="permission-view">
 

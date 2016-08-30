@@ -64,10 +64,7 @@ class GuangyiAssessLogSearch extends Model
             'allModels' => $results,
             'sort' => [
                 'attributes' => ['total', 'rightTotal', 'pcorrect'],
-            ],
-            'pagination' => [
-                'pageSize' => 10,
-            ],
+            ]
         ]);
         
         return $dataProvider;

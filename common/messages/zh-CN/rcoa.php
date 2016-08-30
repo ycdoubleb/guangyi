@@ -45,6 +45,8 @@ return [
     'Delete' => '删除',
     'Search' => '搜索',
     'Back' => '返回',
+    'RememberMe' => '记住登录',
+    'Password' => '密码',
     
     
     //拍摄预约-公共部分

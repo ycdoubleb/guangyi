@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel wskeee\rbac\search\AuthItemSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Assignment';
+$this->title = '权限管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="assignment-index">

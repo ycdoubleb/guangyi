@@ -9,12 +9,9 @@ use yii\widgets\DetailView;
 /* @var $model User */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => '所有用户', 'url' => ['index']];
 ?>
 <div class="user-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('更新', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -39,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'email:email',
             'status',
-            'auth_key',
             [
                 'attribute' => 'created_at',
                 'value' => date('Y-m-d H:i:s', $model->created_at),
