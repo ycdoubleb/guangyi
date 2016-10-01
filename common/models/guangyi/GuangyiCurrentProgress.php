@@ -35,7 +35,7 @@ class GuangyiCurrentProgress extends ActiveRecord
     {
         return [
             [['uid'], 'required'],
-            [['uid', 'progress', 'created_at'], 'integer'],
+            [['progress', 'created_at'], 'integer'],
         ];
     }
 
