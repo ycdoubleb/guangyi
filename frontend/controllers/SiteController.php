@@ -92,8 +92,9 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        
+        Yii::$app->user->logout();
         Yii::$app->getResponse()->format = "json";
+        $post = Yii::$app->getRequest()->getQueryParams();
         if (!\Yii::$app->user->isGuest && isset($post['username']) && $post['username'] === Yii::$app->user->identity->username) {
             return [
                 'code'=>0,
@@ -106,12 +107,11 @@ class SiteController extends Controller
         
         try
         {
-            $post = Yii::$app->getRequest()->getQueryParams();
             $model = new LoginForm();
             $model->username = $post['username'];
             $model->password = $post['password'];
             
-            if ($model->login()) {
+            if ($model->login(false)) {
                 return [
                     'code'=>0,
                     'message'=>'登录成功!',
@@ -122,7 +122,7 @@ class SiteController extends Controller
             } else {
                 return [
                     'code'=>1,
-                    'message'=>'账号或者密码不对'
+                    'message'=>$model->getFirstErrors()
                 ];
             }
         } catch (\Exception $ex) {

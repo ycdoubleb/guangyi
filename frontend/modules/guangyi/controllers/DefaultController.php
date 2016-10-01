@@ -125,13 +125,23 @@ class DefaultController extends Controller
      */
     public function  actionUpdateCurrentProgress($userid,$progress){
         Yii::$app->getResponse()->format = 'json';
+        
         if(!\Yii::$app->user->isGuest)
         {
-             /* @var $studyProgress GuangyiCurrentProgress */
-            $studyProgress = GuangyiCurrentProgress::findOne(['uid'=>$userid]);
-            if($studyProgress == null)$studyProgress = new GuangyiCurrentProgress(['uid'=>$userid]);
-            $studyProgress->progress = $progress;
-            $code = $studyProgress->save();
+            try{
+                 /* @var $studyProgress GuangyiCurrentProgress */
+                $studyProgress = GuangyiCurrentProgress::findOne(['uid'=>$userid]);
+                if($studyProgress == null)$studyProgress = new GuangyiCurrentProgress(['uid'=>$userid]);
+                $studyProgress->progress = $progress;
+                $code = $studyProgress->save();
+            } catch (\Exception $ex) {
+                return [
+                'code'=>1,
+                'message'=>"保存失败",
+                'err'=>$ex->getMessage()
+            ];
+            }
+            
             return [
                 'code'=>$code ? 0 : 1,
                 'message'=>$code?'保存成功':"保存失败",

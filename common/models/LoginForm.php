@@ -56,19 +56,23 @@ class LoginForm extends Model
      *
      * @return boolean whether the user is logged in successfully
      */
-    public function login()
+    public function login($checkRbac = true)
     {
         if ($this->validate()) {
              /* @var $user User */
             $user = $this->getUser();
-            Yii::$app->getUser()->on(\yii\web\User::EVENT_BEFORE_LOGIN, function($event){
-                /* @var $event UserEvent */
-                /* @var $authManager RbacManager */
-                $authManager = Yii::$app->getAuthManager();
-                $event->isValid = $authManager->isRole(RbacName::ROLE_ADMIN,$this->getUser()->id);
-                if(!$event->isValid)
-                    $this->addError('username', '错误账号或无权限登录!');
-           });
+            if($checkRbac)
+            {
+                Yii::$app->getUser()->on(\yii\web\User::EVENT_BEFORE_LOGIN, function($event){
+                    /* @var $event UserEvent */
+                    /* @var $authManager RbacManager */
+                    $authManager = Yii::$app->getAuthManager();
+                    $event->isValid = $authManager->isRole(RbacName::ROLE_ADMIN,$this->getUser()->id);
+                    if(!$event->isValid)
+                        $this->addError('username', '错误账号或无权限登录!');
+               });
+            }
+            
             return Yii::$app->user->login($user, $this->rememberMe ? 3600 * 24 * 30 : 0);
         } else {
             return false;
