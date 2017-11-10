@@ -1,6 +1,10 @@
 <?php
 
-/* @var $this yii\web\View */
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\web\View;
+
+/* @var $this View */
 
 $this->title = '后台管理';
 ?>
@@ -10,7 +14,9 @@ $this->title = '后台管理';
 
         <p class="lead">欢迎来到虚拟实验</p>
         <p class="lead">e170光化学反应仪</p>
-        <p><a class="btn btn-lg btn-success" href="/guangyi">学习情况</a></p>
+        <?=
+            Html::a('学习情况', Url::to(['/guangyi']), ['class' => 'btn btn-lg btn-success']);
+        ?>
     </div>
 
     <div class="body-content">

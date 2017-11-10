@@ -77,10 +77,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $system = System::find()->all();
+        $this->redirect('admin');
         $user = User::findOne(Yii::$app->user->id);
         return $this->render('index',[
-            'system' => $system,
             'user' => $user,
         ]);
     }

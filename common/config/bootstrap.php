@@ -8,4 +8,4 @@
 
     Yii::setAlias('filedata', dirname(dirname(__DIR__)) . '/frontend/web/filedata');
 
-    defined('WEB_ROOT') or define('WEB_ROOT','http://guangyi.gzedu.net');
+    defined('WEB_ROOT') or define('WEB_ROOT','http://172.16.163.110');

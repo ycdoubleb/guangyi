@@ -60,7 +60,7 @@ AppAsset::register($this);
         ];
         $menuItems[] = [
             'label' => '学习情况',
-            'url' => '/guangyi'
+            'url' => ['/guangyi'],
         ];
     }
     echo Nav::widget([
