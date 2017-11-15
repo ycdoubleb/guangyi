@@ -13,6 +13,7 @@ $this->title = '管理用户';
     <p>
         <?= Html::a('新增',['create'],['class'=>'btn btn-success']) ?>
         <?= Html::a('批量导入',['batch-update'],['class'=>'btn btn-success']) ?>
+        <?= Html::a('下载模板',['/demo.xlsx'],['target' => '_blank']) ?>
     </p>
     <?=
     GridView::widget([
