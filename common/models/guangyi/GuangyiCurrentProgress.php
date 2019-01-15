@@ -25,7 +25,7 @@ class GuangyiCurrentProgress extends ActiveRecord
     }
     
     public function behaviors() {
-        return [TimestampBehavior::className()];
+        return [];
     }
 
     /**

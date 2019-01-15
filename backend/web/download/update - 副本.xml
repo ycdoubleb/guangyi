@@ -1,0 +1,12 @@
+<data>
+  <config>
+    <version>0.0.4</version>
+    <doneAct>reboot</doneAct> <!-- reboot, install, none-->
+    <time>2017-12-16 18:21:03</time>
+    <des><![CDATA[更新皮肤，更新完成请重新启动！]]></des>
+  </config>
+  <resources>
+	<resource id="00001" name="skin" path="assets/skin.swf" url="http://192.168.0.17/admin/download/assets/skin.swf" des="更新环节名称"/>
+	<resource id="00002" name="app" path="guangyi.swf" url="http://192.168.0.17/admin/download/guangyi.swf" des="修正新用户卡在进度页"/>
+  </resources>
+</data>

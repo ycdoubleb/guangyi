@@ -15,17 +15,21 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    //put your code here
+    public $sourcePath = '@frontend/assets';
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+    ];
+    public $publishOptions = [
+        'forceCopy' => YII_DEBUG,
+    ];
     public $css = [
         'css/site.css',
         'css/icon.css',
         'css/style.css',
     ];
     public $js = [
-    ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        
     ];
 }

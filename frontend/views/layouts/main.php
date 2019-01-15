@@ -63,7 +63,7 @@ AppAsset::register($this);
     }
     
     $bar_route = Yii::$app->controller->getUniqueId();
-    echo Nav::widget([
+    Nav::widget([
         'options' => Yii::$app->user->isGuest ? ['class' =>'navbar-nav navbar-right'] : ['class' => 'navbar-nav navbar-left'],
         'items' => $menuItems,
         'route' => $bar_route == 'site' ? Yii::$app->controller->getRoute() : $bar_route,
@@ -120,7 +120,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; 广州远程教育中心有限公司 </p>
+        <p class="pull-left"></p>
 
        
     </div>

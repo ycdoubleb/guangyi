@@ -1,0 +1,15 @@
+<data>
+  <config>
+    <version>0.0.4</version>
+    <debug>false</debug>
+    <appname>guangyi.swf</appname>
+    <webroot>http://192.168.0.17/</webroot>
+	<update>http://192.168.0.17/admin/download/update.xml</update>
+    <time>2015-05-23 22:59:28</time>
+  </config>
+  <resources>	
+	<resource name="data" url="data.xml" />
+	<resource name="skin" url="assets/skin.swf" />	
+	<resource name="updateSkin" url="assets/updateSkin.swf" />	
+  </resources>
+</data>
