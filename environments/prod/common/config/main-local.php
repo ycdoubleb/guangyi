@@ -4,11 +4,11 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=172.16.131.180;dbname=ccoa',
-            'username' => 'ccoa',
-            'password' => 'ccoa0405',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=guangyi',
+            'username' => 'wskeee',
+            'password' => '1234',
             'charset' => 'utf8',
-            'tablePrefix' => 'ccoa_'   //加入前缀名称fc_
+            'tablePrefix' => 'guangyi_'   //加入前缀名称fc_
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -58,11 +58,8 @@ return [
         'rbac' => [
             'class' => 'wskeee\rbac\Module',
         ],
-        'framework' => [
-            'class' => 'wskeee\framework\Module'
-        ],
-        'expert' => [
-            'class' => 'frontend\modules\expert\Module'
-        ],
+        'guangyi' => [
+            'class' => 'frontend\modules\guangyi\Module',
+        ]
     ],
 ];

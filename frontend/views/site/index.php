@@ -20,7 +20,7 @@ $this->title = '';
 					<p>全包下载</p>
 				</div>
 			</a>
-			<a class="download-btn" href="app/update/update201901011021.zip">
+			<a class="download-btn" href="app/update/update201901172309.zip">
 				<div>
 					<image src="css/imgs/update.png"/>
 					<p>更新包下载</p>

@@ -1,14 +1,14 @@
 <data>
   <config>
-    <version>0.0.8</version>
+    <version>1.0.0</version>
     <doneAct>reboot</doneAct> <!-- reboot, install, none-->
-    <time>2017-12-16 18:21:03</time>
+    <time>2019年1月17日22:49:42</time>
     <des><![CDATA[更新皮肤，更新完成请重新启动！]]></des>
   </config>
   <resources>
-	<resource id="00001" name="skin" path="assets/skin.swf" url="http://192.168.43.234/admin/download/assets/skin.swf" des="更新环节名称"/>
-	<resource id="00002" name="app" path="guangyi.swf" url="http://192.168.43.234/admin/download/guangyi.swf" des="修正新用户卡在进度页"/>
-	<resource id="00003" name="application" path="META-INF/AIR/application.xml" url="http://192.168.43.234/admin/download/META-INF/AIR/application.xml" des="application"/>
-	<resource id="00004" name="hash" path="META-INF/AIR/hash" url="http://192.168.43.234/admin/download/META-INF/AIR/hash" des="hash"/>
+	<resource id="00001" name="skin" path="assets/skin.swf" url="http://guangyi.wskeee.top/admin/download/assets/skin.swf" des="更新环节名称"/>
+	<resource id="00002" name="app" path="guangyi.swf" url="http://guangyi.wskeee.top/admin/download/guangyi.swf" des="修正新用户卡在进度页"/>
+	<resource id="00003" name="application" path="META-INF/AIR/application.xml" url="http://guangyi.wskeee.top/admin/download/META-INF/AIR/application.xml" des="application"/>
+	<resource id="00004" name="hash" path="META-INF/AIR/hash" url="http://guangyi.wskeee.top/admin/download/META-INF/AIR/hash" des="hash"/>
   </resources>
 </data>

@@ -28,3 +28,16 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+/nbproject/private/
+/vendor/bower-asset/
+/frontend/runtime/
+/frontend/web/assets/
+/frontend/web/upload/
+/frontend/web/app/
+/backend/runtime/
+/backend/web/assets/
+/backend/web/upload/
+/apiend/runtime/
+/apiend/web/assets/
+/apiend/web/upload/

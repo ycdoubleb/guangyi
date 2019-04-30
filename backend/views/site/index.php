@@ -13,7 +13,7 @@ $this->title = '后台管理';
         <h1>后台管理</h1>
 
         <p class="lead">欢迎来到虚拟实验</p>
-        <p class="lead">e170光化学反应仪</p>
+        <p class="lead">生化免疫自动分析仪</p>
         <?=
             Html::a('学习情况', Url::to(['/guangyi']), ['class' => 'btn btn-lg btn-success']);
         ?>

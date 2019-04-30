@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    font-family: '微软雅黑';
 }
 
 .wrap {
@@ -8,10 +9,49 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+    background: url(imgs/skin.jpg) no-repeat center center;
+}
+
+.wrap >.content{
+    padding: 50px 5px 20px;
+}
+
+/*
+信息显示
+*/
+.wrap > .content > .title {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    background: #2e6da4;
+    color: #ffffff;
+    padding-top: 10px;
+    z-index: 1000;
+}
+
+.wrap > .content > .has-title {
+    padding-top: 50px;
+}
+
+/*
+功能控制条
+*/
+.wrap > .content > .controlbar {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    background: #2e6da4;
+    color: #ffffff;
+    padding-top: 10px;
+    z-index: 1010;
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 110px 15px 20px;
 }
 
 .footer {
@@ -89,5 +129,16 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
-.site-index{
+
+.body-content {
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+}
+
+
+.download-btn{
+    display:inline-block;
+    margin:40px;
+    text-align:center;
 }
